@@ -26,6 +26,8 @@ public class AllStop extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+      drive.setLeftDrive(0);
+      drive.setRightDrive(0);
         //TODO: Stop all subsystems
     }
 
