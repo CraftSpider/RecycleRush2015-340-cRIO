@@ -12,10 +12,11 @@ package edu.wpi.first.wpilibj.templates.commands;
 public class AllStop extends CommandBase {
 
     public AllStop() {
-        requires(gearShift);
+        requires(gearShift); //requires all subsystems. forces them to stop what they are doing.
         requires(shooter);
         requires(ballIntake);
-        requires(drive);       // Use requires() here to declare subsystem dependencies
+        requires(drive);       
+        // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 

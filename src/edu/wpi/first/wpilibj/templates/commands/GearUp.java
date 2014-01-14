@@ -24,7 +24,7 @@ public class GearUp extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        gearShift.gearHigh();
+        gearShift.gearHigh(); //shift the robot into high gear. calls gearHigh.
     }
 
     // Make this return true when this Command no longer needs to run execute()

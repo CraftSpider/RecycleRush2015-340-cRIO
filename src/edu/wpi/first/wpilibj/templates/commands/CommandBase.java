@@ -20,7 +20,7 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     // Create a single static instance of all of your subsystems
-    public static GearShift gearShift = new GearShift();
+    public static GearShift gearShift = new GearShift(); //instantiates each subsystem.
     public static Shooter shooter = new Shooter();
     public static BallIntake ballIntake = new BallIntake();
     public static Drive drive = new Drive();
