@@ -10,13 +10,13 @@ package edu.wpi.first.wpilibj.templates.commands;
  * @author Tech
  */
 public class AllStop extends CommandBase {
-    
+
     public AllStop() {
-    requires(gearShift);
-    requires(shooter);
-    requires(ballIntake);
-    requires(drive);       // Use requires() here to declare subsystem dependencies
-                           // eg. requires(chassis);
+        requires(gearShift);
+        requires(shooter);
+        requires(ballIntake);
+        requires(drive);       // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class AllStop extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    //TODO: Stop all subsystems
+        //TODO: Stop all subsystems
     }
 
     // Make this return true when this Command no longer needs to run execute()

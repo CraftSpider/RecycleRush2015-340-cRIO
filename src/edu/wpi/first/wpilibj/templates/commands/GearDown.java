@@ -10,12 +10,12 @@ package edu.wpi.first.wpilibj.templates.commands;
  * @author Tech
  */
 public class GearDown extends CommandBase {
-    
+
     public GearDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(gearShift);
-        
+
     }
 
     // Called just before this Command runs the first time
@@ -24,7 +24,7 @@ public class GearDown extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    gearShift.gearLow();
+        gearShift.gearLow();
     }
 
     // Make this return true when this Command no longer needs to run execute()

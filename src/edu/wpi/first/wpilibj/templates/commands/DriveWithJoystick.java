@@ -10,7 +10,7 @@ package edu.wpi.first.wpilibj.templates.commands;
  * @author grr340
  */
 public class DriveWithJoystick extends CommandBase {
-    
+
     public DriveWithJoystick() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  * @author Robotics
  */
-
 //this is a test comment to see if git is working
 public class BallIntake extends Subsystem {
     // Put methods for controlling this subsystem
