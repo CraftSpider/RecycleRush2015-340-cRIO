@@ -17,8 +17,8 @@ public class Drive extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    CANJaguar leftDrive1;
-    CANJaguar leftDrive2;
+    CANJaguar leftDrive1; //instantiate each of the jaguars.
+    CANJaguar leftDrive2; //the three left-three right.
     CANJaguar leftDrive3;
     CANJaguar rightDrive1;
     CANJaguar rightDrive2;
@@ -32,7 +32,7 @@ public class Drive extends Subsystem {
             this.rightDrive1 = new CANJaguar(5);
             this.rightDrive2 = new CANJaguar(6);
             this.rightDrive3 = new CANJaguar(7);
-        } catch (CANTimeoutException ex) {
+        } catch (CANTimeoutException ex) { //check for timout exceptions, if so print the error.
             ex.printStackTrace();
         }
 
@@ -43,22 +43,22 @@ public class Drive extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 
-    public void setLeftDrive(double speed) {
+    public void setLeftDrive(double speed) { //set all of the left Jaguars to he same speed.
         try {
             leftDrive1.setX(speed);
             leftDrive2.setX(speed);
             leftDrive3.setX(speed);
-        } catch (CANTimeoutException ex) {
+        } catch (CANTimeoutException ex) { //check for timeout exception.
             ex.printStackTrace();
         }
     }
 
-    public void setRightDrive(double speed) {
+    public void setRightDrive(double speed) { //set all of the right Jaguars to he same speed.
         try {
             rightDrive1.setX(speed);
             rightDrive2.setX(speed);
             rightDrive3.setX(speed);
-        } catch (CANTimeoutException ex) {
+        } catch (CANTimeoutException ex) { //check for timeout exception.
             ex.printStackTrace();
         }
     }
