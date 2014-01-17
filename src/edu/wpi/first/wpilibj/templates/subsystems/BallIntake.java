@@ -24,25 +24,32 @@ public class BallIntake extends Subsystem {
     
     
     public void deployMechanism (double speed){
-        
+        mechanismDeployer.set(speed);
     }
     public void retractMechanism(double speed){
-        
+        mechanismDeployer.set(-speed);
     }
     public void ballIntakeIn(double speed){
-        
+        intakeRoller.set(speed);
     }
     public void ballIntakeOut(double speed){
-        
+        intakeRoller.set(-speed);
     }
     public void ballIntakeStop(){
-        
+        intakeRoller.set(0);
     }
-    public double mechanismDeltaAngle(double angle){
-        return 999999999;
+    public double mechanismDeltaAngle(int angle){
+        return angle - mechanismAngleMeter.getValue();
     }
-    public boolean isMechanismWithinThreshold(double angle, double threshold){
-        return false;
+    public boolean isMechanismWithinThreshold(int angle, double threshold){
+        if(mechanismDeltaAngle(angle) < threshold)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
             
     
