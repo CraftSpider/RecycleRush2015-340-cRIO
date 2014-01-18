@@ -8,6 +8,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.AnalogChannel;
 
 /**
  *
@@ -20,13 +21,16 @@ public class BallIntake extends Subsystem {
     Victor mechanismDeployer = new Victor(3);
     Victor intakeRoller = new Victor(4);
     AnalogChannel mechanismAngleMeter = new AnalogChannel(1);
+    private AnalogChannel ballDetector = new AnalogChannel(1);
+    // TODO: fill in the two null
+    
     
     public final int groundPickUp = 90;
     public final int threshold = 3;
     public final int shootPosition = 0;
     public final double rollerSpeed = .5;
     public final double angleSpeed = .5;
-    
+    public final int ultrasonicValueConsideredIn = 10;
     
     
     
@@ -61,6 +65,9 @@ public class BallIntake extends Subsystem {
         {
             return false;
         }
+    }
+    public boolean isBallInMechanism() {
+        return ballDetector.getValue() < ultrasonicValueConsideredIn;
     }
             
     

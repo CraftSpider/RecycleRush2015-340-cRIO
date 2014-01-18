@@ -9,6 +9,9 @@ public class AutoMode extends CommandBase {
     public AutoMode() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(drive);
+        requires(shooter);
+        requires(ballIntake);
     }
 
     // Called just before this Command runs the first time
