@@ -5,6 +5,9 @@
  */
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Victor;
+
 /**
  *
  * @author Tech
@@ -29,7 +32,9 @@ public class AllStop extends CommandBase {
       drive.setLeftDrive(0);
       drive.setRightDrive(0);
       ballIntake.ballIntakeStop();
-                                   //TODO: Stop all subsystems
+      gearShift.gearLow();
+      shooter.stopPull();
+      shooter.triggerIn();//TODO: Stop all subsystems
     }
 
     // Make this return true when this Command no longer needs to run execute()

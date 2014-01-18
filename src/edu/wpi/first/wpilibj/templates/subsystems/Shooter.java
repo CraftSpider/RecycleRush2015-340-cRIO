@@ -31,9 +31,6 @@ public class Shooter extends Subsystem {
     public void pullBack(double Speed) {
         puller.set(Speed);
     }
-    public void shoot() {
-        trigger.set(false);
-    }
     public void stopPull() {
         puller.set(0);
     }
@@ -43,4 +40,14 @@ public class Shooter extends Subsystem {
     public boolean isTriggered() {
         return !trigger.get();
     }
+    public void triggerIn() {
+        trigger.set(true);
+    }
+    public void triggerOut() {
+        trigger.set(false);
+    }
+    public void shoot() { 
+        trigger.set(false);
+    //Same function as triggerOut. Consider revision.    
+    } 
 }
