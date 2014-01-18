@@ -21,7 +21,7 @@ public class BallIntake extends Subsystem {
     Victor mechanismDeployer = new Victor(3);
     Victor intakeRoller = new Victor(4);
     AnalogChannel mechanismAngleMeter = new AnalogChannel(1);
-    private AnalogChannel ballDetector = new AnalogChannel(1);
+    private AnalogChannel ballDetector = new AnalogChannel(2);
     // TODO: fill in the two null
     
     
