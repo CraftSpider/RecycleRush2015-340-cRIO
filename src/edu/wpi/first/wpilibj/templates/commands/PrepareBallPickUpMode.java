@@ -20,7 +20,7 @@ public class PrepareBallPickUpMode extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        ballIntake.ballIntakeIn(ballIntake.rollerSpeed);
+        ballIntake.ballIntakeRollerIn(ballIntake.rollerSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -36,11 +36,12 @@ public class PrepareBallPickUpMode extends CommandBase {
     protected boolean isFinished() {
         //TODO When the arm has reached the threshold
         return ballIntake.isMechanismWithinThreshold(ballIntake.groundPickUp, ballIntake.threshold);
+   
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        ballIntake.ballIntakeStop();
+        ballIntake.ballIntakeRollerStop();
     }
 
     // Called when another command which requires one or more of the same

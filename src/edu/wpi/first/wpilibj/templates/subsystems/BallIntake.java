@@ -21,7 +21,7 @@ public class BallIntake extends Subsystem {
     Victor mechanismDeployer = new Victor(3);
     Victor intakeRoller = new Victor(4);
     AnalogChannel mechanismAngleMeter = new AnalogChannel(1);
-    private AnalogChannel ballDetector = new AnalogChannel(1);
+    private AnalogChannel ballDetector = new AnalogChannel(2);
     // TODO: fill in the two null
     
     
@@ -44,13 +44,13 @@ public class BallIntake extends Subsystem {
     public void retractMechanism(double speed){
         mechanismDeployer.set(-speed);
     }
-    public void ballIntakeIn(double speed){
+    public void ballIntakeRollerIn(double speed){
         intakeRoller.set(speed);
     }
-    public void ballIntakeOut(double speed){
+    public void ballIntakeRollerOut(double speed){
         intakeRoller.set(-speed);
     }
-    public void ballIntakeStop(){
+    public void ballIntakeRollerStop(){
         intakeRoller.set(0);
     }
     public double mechanismDeltaAngle(int angle){

@@ -9,9 +9,9 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author grr340
  */
-public class ShootFire extends CommandBase {
+public class ShootNow extends CommandBase {
     
-    public ShootFire() {
+    public ShootNow() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(shooter);
@@ -23,7 +23,7 @@ public class ShootFire extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shooter.shoot();
+        shooter.triggerOut();
     }
 
     // Make this return true when this Command no longer needs to run execute()

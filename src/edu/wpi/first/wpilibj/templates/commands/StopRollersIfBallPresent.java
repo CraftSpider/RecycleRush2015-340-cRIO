@@ -7,40 +7,33 @@ package edu.wpi.first.wpilibj.templates.commands;
 
 /**
  *
- * @author Tech
+ * @author tech
  */
-public class AllStop extends CommandBase {
-
-    public AllStop() {
-        requires(gearShift); //requires all subsystems. forces them to stop what they are doing.
-        requires(shooter);
-        requires(ballIntake);
-        requires(drive);       
+public class StopRollersIfBallPresent extends CommandBase {
+    
+    public StopRollersIfBallPresent() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(ballIntake);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        ballIntake.ballIntakeRollerIn(1);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-      drive.setLeftDrive(0);
-      drive.setRightDrive(0);
-      ballIntake.ballIntakeRollerStop();
-      gearShift.gearLow();
-      shooter.stopPull();
-      shooter.triggerOut();//TODO: Stop all subsystems
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return ballIntake.isBallInMechanism();
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        ballIntake.ballIntakeRollerStop();
     }
 
     // Called when another command which requires one or more of the same
