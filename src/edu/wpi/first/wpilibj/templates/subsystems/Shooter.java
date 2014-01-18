@@ -5,9 +5,11 @@
  */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.buttons.AnalogIOButton;
 
 /**
  *
@@ -18,6 +20,8 @@ public class Shooter extends Subsystem {
     // here. Call these from Commands.
         private Solenoid trigger = new Solenoid(1);
         private Victor puller = new Victor(6);
+        private DigitalInput downSensor = new DigitalInput(1);
+        // TODO: Change downSensor to whatever we are actually using
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -29,5 +33,14 @@ public class Shooter extends Subsystem {
     }
     public void shoot() {
         trigger.set(false);
+    }
+    public void stopPull() {
+        puller.set(0);
+    }
+    public boolean isDown() {
+        return downSensor.get();
+    }
+    public boolean isTriggered() {
+        return !trigger.get();
     }
 }

@@ -28,7 +28,8 @@ public class AllStop extends CommandBase {
     protected void execute() {
       drive.setLeftDrive(0);
       drive.setRightDrive(0);
-        //TODO: Stop all subsystems
+      ballIntake.ballIntakeStop();
+                                   //TODO: Stop all subsystems
     }
 
     // Make this return true when this Command no longer needs to run execute()
