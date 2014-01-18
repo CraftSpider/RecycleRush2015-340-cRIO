@@ -11,27 +11,44 @@ import edu.wpi.first.wpilibj.templates.commands.*;
  */
 public class OI {
 
-    Joystick xboxDriverController = new Joystick(1);
-    Button buttonA = new JoystickButton(xboxDriverController, 1);
-    Button buttonB = new JoystickButton(xboxDriverController, 2);
-    Button buttonX = new JoystickButton(xboxDriverController, 3);
-    Button buttonY = new JoystickButton(xboxDriverController, 4);
-    Button buttonLB = new JoystickButton(xboxDriverController, 5);
-    Button buttonRB = new JoystickButton(xboxDriverController, 6);
-    Button buttonBack = new JoystickButton(xboxDriverController, 7);
-    Button buttonStart = new JoystickButton(xboxDriverController, 8);
+    Joystick xboxDriverController1 = new Joystick(1);
+    Button buttonA1 = new JoystickButton(xboxDriverController1, 1);
+    Button buttonB1 = new JoystickButton(xboxDriverController1, 2);
+    Button buttonX1 = new JoystickButton(xboxDriverController1, 3);
+    Button buttonY1 = new JoystickButton(xboxDriverController1, 4);
+    Button buttonLB1 = new JoystickButton(xboxDriverController1, 5);
+    Button buttonRB1 = new JoystickButton(xboxDriverController1, 6);
+    Button buttonBack1 = new JoystickButton(xboxDriverController1, 7);
+    Button buttonStart1 = new JoystickButton(xboxDriverController1, 8);
+    
+    Joystick xboxDriverController2 = new Joystick(2);
+    Button buttonA2 = new JoystickButton(xboxDriverController2, 1);
+    Button buttonB2 = new JoystickButton(xboxDriverController2, 2);
+    Button buttonX2 = new JoystickButton(xboxDriverController2, 3);
+    Button buttonY2 = new JoystickButton(xboxDriverController2, 4);
+    Button buttonLB2 = new JoystickButton(xboxDriverController2, 5);
+    Button buttonRB2 = new JoystickButton(xboxDriverController2, 6);
+    Button buttonBack2 = new JoystickButton(xboxDriverController2, 7);
+    Button buttonStart2 = new JoystickButton(xboxDriverController2, 8);
 
     public OI() {
-        buttonLB.whenPressed(new GearUp());
-        buttonRB.whenPressed(new GearDown());
+        buttonA1.whenPressed(new PrepareBallPickUpMode());
+        buttonB1.whenPressed(new BallIntakeGoToLoadPosition());
+        buttonX1.whenPressed(new BallIntakeGoToShootingPos());
+        buttonLB1.whenPressed(new GearUp());
+        buttonRB1.whenPressed(new GearDown());
+        buttonBack1.whenPressed(new AllStop());
+        buttonBack2.whenPressed(new AllStop());
+        
+        
     }
 
     public double getDriveMove() {
-        return xboxDriverController.getRawAxis(2); //x-axis
+        return xboxDriverController1.getRawAxis(2); //x-axis
     }
 
     public double getDriveRotate() {
-        return xboxDriverController.getRawAxis(1); //y-axis
+        return xboxDriverController1.getRawAxis(1); //y-axis
     }
 
     //// CREATING BUTTONS

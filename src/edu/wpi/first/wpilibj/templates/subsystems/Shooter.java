@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.buttons.AnalogIOButton;
+import edu.wpi.first.wpilibj.AnalogChannel;
 
 /**
  *
@@ -21,7 +22,8 @@ public class Shooter extends Subsystem {
         private Solenoid trigger = new Solenoid(1);
         private Victor puller = new Victor(6);
         private DigitalInput downSensor = new DigitalInput(1);
-        // TODO: Change downSensor to whatever we are actually using
+        private AnalogChannel armPosition = new AnalogChannel(3);
+        // TODO: Remove armPosition if we won't have a potentiometer
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -50,4 +52,7 @@ public class Shooter extends Subsystem {
         trigger.set(false);
     //Same function as triggerOut. Consider revision.    
     } 
+    public void getPosition() {
+        armPosition.getValue();
+    }
 }

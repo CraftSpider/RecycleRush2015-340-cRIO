@@ -9,9 +9,9 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author tech
  */
-public class GoToLoadPosition extends CommandBase {
+public class BallIntakeGoToLoadPosition extends CommandBase {
     
-    public GoToLoadPosition() {
+    public BallIntakeGoToLoadPosition() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(ballIntake);
@@ -33,7 +33,7 @@ public class GoToLoadPosition extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        ballIntake.ballIntakeRollerStop();
+        
     }
 
     // Called when another command which requires one or more of the same

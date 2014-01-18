@@ -9,9 +9,9 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author grr340
  */
-public class ShootPrime extends CommandBase {
+public class ShooterPullToGoalPos extends CommandBase {
     
-    public ShootPrime() {
+    public ShooterPullToGoalPos() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(shooter);
