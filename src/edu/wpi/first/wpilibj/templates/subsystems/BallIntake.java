@@ -44,6 +44,9 @@ public class BallIntake extends Subsystem {
     public void retractMechanism(double speed){
         mechanismDeployer.set(-speed);
     }
+    public void mechanismStop(){
+    mechanismDeployer.set(0);
+    }
     public void ballIntakeRollerIn(double speed){
         intakeRoller.set(speed);
     }
