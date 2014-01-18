@@ -21,6 +21,17 @@ public class BallIntake extends Subsystem {
     Victor intakeRoller = new Victor(4);
     AnalogChannel mechanismAngleMeter = new AnalogChannel(1);
     
+    public final int groundPickUp = 90;
+    public final int threshold = 3;
+    public final int shootPosition = 0;
+    public final double rollerSpeed = .5;
+    public final double angleSpeed = .5;
+    
+    
+    
+    
+    
+    
     
     
     public void deployMechanism (double speed){
