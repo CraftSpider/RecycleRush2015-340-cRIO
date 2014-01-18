@@ -28,7 +28,7 @@ public class AllStop extends CommandBase {
     protected void execute() {
       drive.setLeftDrive(0);
       drive.setRightDrive(0);
-      ballIntake.ballIntakeStop();
+      ballIntake.ballIntakeRollerStop();
       gearShift.gearLow();
       shooter.stopPull();
       shooter.triggerOut();//TODO: Stop all subsystems

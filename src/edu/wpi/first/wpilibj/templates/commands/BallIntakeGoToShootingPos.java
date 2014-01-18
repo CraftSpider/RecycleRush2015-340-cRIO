@@ -35,7 +35,7 @@ public class BallIntakeGoToShootingPos extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        ballIntake.ballIntakeStop();
+        ballIntake.ballIntakeRollerStop();
     }
 
     // Called when another command which requires one or more of the same
