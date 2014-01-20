@@ -24,6 +24,9 @@ public class Shooter extends Subsystem {
         private DigitalInput downSensor = new DigitalInput(1);
         private AnalogChannel armPosition = new AnalogChannel(3);
         // TODO: Remove armPosition if we won't have a potentiometer
+        public final int trussPosition = 42;
+        public final int armPositioningThreshold = 3;
+        public final double pullSpeed = .5;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -52,7 +55,7 @@ public class Shooter extends Subsystem {
         trigger.set(false);
     //Same function as triggerOut. Consider revision.    
     } 
-    public void getPosition() {
-        armPosition.getValue();
+    public int getPosition() {
+        return armPosition.getValue();
     }
 }
