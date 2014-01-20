@@ -32,7 +32,7 @@ public class OI {
     Button buttonStart2 = new JoystickButton(xboxDriverController2, 8);
 
     public OI() {
-        buttonA1.whenPressed(new PrepareBallPickUpMode());
+        buttonA1.whenPressed(new GetBall());
         buttonB1.whenPressed(new BallIntakeGoToLoadPosition());
         buttonX1.whenPressed(new BallIntakeGoToShootingPos());
         buttonLB1.whenPressed(new GearUp());

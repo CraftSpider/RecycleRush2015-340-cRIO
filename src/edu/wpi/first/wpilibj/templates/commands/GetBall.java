@@ -9,10 +9,10 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author Tech
  */
-public class PrepareBallPickUpMode extends CommandBase {
+public class GetBall extends CommandBase {
     
     
-    public PrepareBallPickUpMode() {
+    public GetBall() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(ballIntake);
@@ -27,21 +27,20 @@ public class PrepareBallPickUpMode extends CommandBase {
     protected void execute() {
         
             //TODO add try and catch
-        ballIntake.deployIntake();
-        
-        
+        ballIntake.deployIntake();        
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         //TODO When the arm has reached the threshold
-        return ballIntake.isMechanismWithinThreshold(ballIntake.groundPickUp, ballIntake.threshold);
+        return ballIntake.isBallInMechanism();
    
     }
 
     // Called once after isFinished returns true
     protected void end() {
         ballIntake.ballIntakeRollerStop();
+        ballIntake.retractIntake();
     }
 
     // Called when another command which requires one or more of the same

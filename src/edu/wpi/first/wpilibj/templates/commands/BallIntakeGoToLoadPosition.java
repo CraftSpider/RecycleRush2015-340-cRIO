@@ -23,12 +23,12 @@ public class BallIntakeGoToLoadPosition extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        ballIntake.deployMechanism(ballIntake.angleSpeed);
+        ballIntake.deployIntake();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-          return ballIntake.isMechanismWithinThreshold(ballIntake.groundPickUp, ballIntake.threshold);
+          return true;
     }
 
     // Called once after isFinished returns true
