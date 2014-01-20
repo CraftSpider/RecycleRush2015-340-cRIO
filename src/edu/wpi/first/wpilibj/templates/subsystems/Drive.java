@@ -1,41 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
-import edu.wpi.first.wpilibj.CANJaguar;
-import edu.wpi.first.wpilibj.can.CANTimeoutException;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
- * @author Tech
+ * @author Tyler Pawlaczyk
  */
 public class Drive extends Subsystem {
+    
+    Talon leftDrive1; 
+    Talon leftDrive2; 
+    Talon leftDrive3;
+    Talon rightDrive1;
+    Talon rightDrive2;
+    Talon rightDrive3;
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    CANJaguar leftDrive1; //instantiate each of the jaguars.
-    CANJaguar leftDrive2; //the three left-three right.
-    CANJaguar leftDrive3;
-    CANJaguar rightDrive1;
-    CANJaguar rightDrive2;
-    CANJaguar rightDrive3;
-
-    public Drive() {
-        try {
-            this.leftDrive1 = new CANJaguar(2);
-            this.leftDrive2 = new CANJaguar(3);
-            this.leftDrive3 = new CANJaguar(4);
-            this.rightDrive1 = new CANJaguar(5);
-            this.rightDrive2 = new CANJaguar(6);
-            this.rightDrive3 = new CANJaguar(7);
-        } catch (CANTimeoutException ex) { //check for timout exceptions, if so print the error.
-            ex.printStackTrace();
-        }
-
+    public Drive()
+    {
+        leftDrive1 = new Talon(1);
+        leftDrive2 = new Talon(2);
+        leftDrive3 = new Talon(3);
+        
+        rightDrive1 = new Talon(4);
+        rightDrive2 = new Talon(5);
+        rightDrive3 = new Talon(6);
+        
     }
 
     public void initDefaultCommand() {
@@ -43,24 +33,18 @@ public class Drive extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 
-    public void setLeftDrive(double speed) { //set all of the left Jaguars to he same speed.
-        try {
-            leftDrive1.setX(speed);
-            leftDrive2.setX(speed);
-            leftDrive3.setX(speed);
-        } catch (CANTimeoutException ex) { //check for timeout exception.
-            ex.printStackTrace();
-        }
+    public void setLeftDrive(double speed)
+    {
+            leftDrive1.set(speed);
+            leftDrive2.set(speed);
+            leftDrive3.set(speed);
     }
 
-    public void setRightDrive(double speed) { //set all of the right Jaguars to he same speed.
-        try {
-            rightDrive1.setX(speed);
-            rightDrive2.setX(speed);
-            rightDrive3.setX(speed);
-        } catch (CANTimeoutException ex) { //check for timeout exception.
-            ex.printStackTrace();
-        }
+    public void setRightDrive(double speed)
+    {
+            rightDrive1.set(speed);
+            rightDrive2.set(speed);
+            rightDrive3.set(speed);
     }
 
 }
