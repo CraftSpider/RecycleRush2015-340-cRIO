@@ -12,7 +12,7 @@ package edu.wpi.first.wpilibj.templates.commands;
 public class GoToPosA extends CommandBase {
     private int angle;
     private double speed = .5;
-    
+    private static final int threshhold = 5;
     
     public GoToPosA(int pos) {
         // Use requires() here to declare subsystem dependencies
@@ -38,12 +38,13 @@ public class GoToPosA extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        double delta = ballIntake.mechanismDeltaAngle(angle);
-        return delta == 0;
+        return ballIntake.isMechanismWithinThreshold(angle, threshhold);
     }
+    
 
     // Called once after isFinished returns true
     protected void end() {
+        ballIntake.mechanismStop();
     }
 
     // Called when another command which requires one or more of the same
