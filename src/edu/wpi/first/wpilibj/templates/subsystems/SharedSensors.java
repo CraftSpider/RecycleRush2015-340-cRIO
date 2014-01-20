@@ -8,6 +8,7 @@ import com.sun.squawk.util.MathUtils;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Solenoid;
 
 
 
@@ -15,6 +16,7 @@ public class SharedSensors extends Subsystem
 {
     private AnalogChannel leftUltrasonic, rightUltrasonic;
     private DigitalInput leftLineReader, rightLineReader;
+    private Solenoid greenLED, redLED;
     
     private static final double DISTANCE_BETWEEN_ULTRASONICS = 19; //inches
     
@@ -59,4 +61,35 @@ public class SharedSensors extends Subsystem
                 (getRightUltrasonicDistance() - getLeftUltrasonicDistance()));
     }
     
+    public void ActivateGreenLED()
+    {
+        greenLED.set(true);
+    }
+    
+    public void ActivateRedLED()
+    {
+        redLED.set(true);
+    }
+    
+    public void ActivateYellowLED()
+    {
+        greenLED.set(true);
+        redLED.set(true);
+    }
+    
+    public void DeactivateGreenLED()
+    {
+        greenLED.set(false);
+    }
+    
+    public void DeactivateRedLED()
+    {
+        redLED.set(false);
+    }
+    
+    public void DeactivateYellowLED()
+    {
+        greenLED.set(false);
+        redLED.set(false);
+    }
 }

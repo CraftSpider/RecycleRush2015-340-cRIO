@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.GearShift;
 import edu.wpi.first.wpilibj.templates.subsystems.Shooter;
 import edu.wpi.first.wpilibj.templates.subsystems.Drive;
 import edu.wpi.first.wpilibj.templates.subsystems.BallIntake;
+import edu.wpi.first.wpilibj.templates.subsystems.SharedSensors;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -24,6 +25,7 @@ public abstract class CommandBase extends Command {
     public static Shooter shooter = new Shooter();
     public static BallIntake ballIntake = new BallIntake();
     public static Drive drive = new Drive();
+    public static SharedSensors sharedSensors = new SharedSensors(1,2,3,4);
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
