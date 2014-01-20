@@ -21,6 +21,7 @@ public class ShootAtDistance extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        shooter.triggerIn();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,6 +41,7 @@ public class ShootAtDistance extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        shooter.triggerIn();
     }
 
     // Called when another command which requires one or more of the same
