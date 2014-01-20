@@ -14,6 +14,8 @@ public class DriveWithJoystick extends CommandBase {
     public DriveWithJoystick() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        requires(drive);
+        requires(sharedSensors);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +23,14 @@ public class DriveWithJoystick extends CommandBase {
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
+    protected void execute() 
+    {
+        drive.arcadeDrive(oi.getDriveMove(), oi.getDriveRotate(), true);
+        System.out.println("drive left:" + drive.leftMotorSpeed);
+        System.out.println("drive right:" + drive.rightMotorSpeed);
+        System.out.println("Ultrasonic Average:" + sharedSensors.getAverageUltrasonicDistance());
+        System.out.println("Ultrasonic left:" + sharedSensors.getLeftUltrasonicDistance());
+        System.out.println("Ultrasonic right:" + sharedSensors.getRightUltrasonicDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()
