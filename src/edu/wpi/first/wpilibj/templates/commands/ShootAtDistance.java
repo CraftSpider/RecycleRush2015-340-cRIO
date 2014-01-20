@@ -27,7 +27,7 @@ public class ShootAtDistance extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         if (sharedSensors.getAverageUltrasonicDistance() <= DISTANCE_TO_SHOOT_FROM) {
-            shooter.pullBack(shooter.pullSpeed);
+            shooter.pullBack(.5);
             if (shooter.isDown()) {
                 shooter.shoot();
             }
