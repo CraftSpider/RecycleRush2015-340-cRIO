@@ -14,48 +14,73 @@ import edu.wpi.first.wpilibj.AnalogChannel;
 
 /**
  *
- * @author Robotics
+ * @author Ryan Pappa
  */
 public class Shooter extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-        private Solenoid trigger = new Solenoid(1);
-        private Victor puller = new Victor(6);
-        private DigitalInput downSensor = new DigitalInput(1);
-        private AnalogChannel armPosition = new AnalogChannel(3);
-        // TODO: Remove armPosition if we won't have a potentiometer
-        public final int trussPosition = 42;
-        public final int armPositioningThreshold = 3;
-        public final double pullSpeed = .5;
+    
+        public final int TRUSS_POSITION = 42;
+        public final int ARM_POSITIONING_THRESHOLD = 3;
+        public final double PULL_SPEED = .5;
 
-    public void initDefaultCommand() {
+        private Solenoid trigger;
+        private Victor puller;
+        private DigitalInput downSensor;
+        // TODO: Remove armPosition if we won't have a potentiometer
+        private AnalogChannel armPosition;
+        
+        
+    public Shooter()
+    {
+        trigger = new Solenoid(2);
+        puller  = new Victor(6);
+        downSensor  = new DigitalInput(1);
+        armPosition = new AnalogChannel(3);
+    }
+
+    public void initDefaultCommand()
+    {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
 
     }
-    public void pullBack(double Speed) {
+    
+    public void pullBack(double Speed)
+    {
         puller.set(Speed);
     }
-    public void stopPull() {
+    
+    public void stopPull()
+    {
         puller.set(0);
     }
-    public boolean isDown() {
+    
+    public boolean isDown()
+    {
         return downSensor.get();
     }
-    public boolean isTriggered() {
+    
+    public boolean isTriggered()
+    {
         return !trigger.get();
     }
-    public void triggerIn() {
+    
+    public void triggerIn()
+    {
         trigger.set(true);
     }
-    public void triggerOut() {
+    
+    public void triggerOut()
+    {
         trigger.set(false);
     }
-    public void shoot() { 
+    
+    public void shoot() //Same function as triggerOut. Consider revision.
+    { 
         trigger.set(false);
-    //Same function as triggerOut. Consider revision.    
     } 
-    public int getPosition() {
+    
+    public int getPosition()
+    {
         return armPosition.getValue();
     }
 }

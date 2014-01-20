@@ -23,7 +23,7 @@ public class ShooterPullToGoalPos extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shooter.pullBack(shooter.pullSpeed);
+        shooter.pullBack(shooter.PULL_SPEED);
     }
 
     // Make this return true when this Command no longer needs to run execute()

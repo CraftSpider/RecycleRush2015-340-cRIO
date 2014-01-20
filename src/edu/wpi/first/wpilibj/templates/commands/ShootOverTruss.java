@@ -23,12 +23,12 @@ public class ShootOverTruss extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        shooter.pullBack(shooter.pullSpeed);
+        shooter.pullBack(shooter.PULL_SPEED);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return shooter.getPosition() > shooter.trussPosition;
+        return shooter.getPosition() > shooter.TRUSS_POSITION;
     }
 
     // Called once after isFinished returns true
