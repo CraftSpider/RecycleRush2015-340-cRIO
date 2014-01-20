@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Command that shoots when the ball is present.
  * @author grr340
  */
 public class ShootWhenBallPresent extends CommandBase {
     
+    /**
+     * Constructor for ShootWhenBallPresent class.
+     */
     public ShootWhenBallPresent() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -22,7 +20,9 @@ public class ShootWhenBallPresent extends CommandBase {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Shoots when there is a ball in the mechanism.
+     */
     protected void execute() {
         if(ballIntake.isBallInMechanism()){
             //same code can be used with a detector for if the ball is settled
@@ -31,7 +31,10 @@ public class ShootWhenBallPresent extends CommandBase {
         }
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    /**
+     * 
+     * @return 
+     */
     protected boolean isFinished() {
         return shooter.isTriggered();
     }

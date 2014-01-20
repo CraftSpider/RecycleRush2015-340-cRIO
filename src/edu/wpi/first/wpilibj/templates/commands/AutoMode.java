@@ -1,8 +1,8 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
- * @author bradmiller
+ * Contains the command for auto.
+ * @author Tech
  */
 public class AutoMode extends CommandBase {
 

@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Commands that shifts gears down.
  * @author Tech
  */
 public class GearDown extends CommandBase {
 
+    /**
+     * Constructor for the GearDown class.
+     */
     public GearDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -22,7 +20,9 @@ public class GearDown extends CommandBase {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Method that shifts the gear down.
+     */
     protected void execute() {
         gearShift.gearLow(); //shift the robot into low gear. calls gearLow.
     }

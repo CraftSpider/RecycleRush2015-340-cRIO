@@ -36,57 +36,86 @@ public class SharedSensors extends Subsystem
     }
     
     /**
-     * This method returns the 
-     * @return 
+     * This method returns the left ultrasonic.
+     * @return double
      */
     public double getLeftUltrasonicDistance()
     {
         return leftUltrasonic.getValue()/2;
     }
     
+    /**
+     * This method returns the right ultrasonic.
+     * @return double
+     */
     public double getRightUltrasonicDistance()
     {
         return rightUltrasonic.getValue()/2;
     }
     
+    /**
+     * This method returns the ultrasonic average.
+     * @return double
+     */
     public double getAverageUltrasonicDistance()
     {
         return  ( getLeftUltrasonicDistance() + getRightUltrasonicDistance() ) / 2;
     }
     
+    /**
+     * tan^-1(distance between ultras/difference between readings)
+     * @return double
+     */
     public double inferAngleFromUltrasonics()
-    {
-        // tan^-1(distance between ultras/difference between readings)
+    { 
         return MathUtils.atan(DISTANCE_BETWEEN_ULTRASONICS /
                 (getRightUltrasonicDistance() - getLeftUltrasonicDistance()));
     }
     
+    /**
+     * Turns on the green LED.
+     */
     public void ActivateGreenLED()
     {
         greenLED.set(true);
     }
     
+    /**
+     * Turns on the red LED.
+     */
     public void ActivateRedLED()
     {
         redLED.set(true);
     }
     
+    /**
+     * Turns on the yellow LED.
+     */
     public void ActivateYellowLED()
     {
         greenLED.set(true);
         redLED.set(true);
     }
     
+    /**
+     * Turns off the green LED.
+     */
     public void DeactivateGreenLED()
     {
         greenLED.set(false);
     }
     
+    /**
+     * Turns off the red LED.
+     */
     public void DeactivateRedLED()
     {
         redLED.set(false);
     }
     
+    /**
+     * Turns off the yellow LED.
+     */
     public void DeactivateYellowLED()
     {
         greenLED.set(false);

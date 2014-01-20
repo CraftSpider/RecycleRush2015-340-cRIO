@@ -21,16 +21,19 @@ public class OI {
     Button buttonBack1 = new JoystickButton(xboxDriverController1, 7);
     Button buttonStart1 = new JoystickButton(xboxDriverController1, 8);
     
-    Joystick xboxDriverController2 = new Joystick(2);
-    Button buttonA2 = new JoystickButton(xboxDriverController2, 1);
-    Button buttonB2 = new JoystickButton(xboxDriverController2, 2);
-    Button buttonX2 = new JoystickButton(xboxDriverController2, 3);
-    Button buttonY2 = new JoystickButton(xboxDriverController2, 4);
-    Button buttonLB2 = new JoystickButton(xboxDriverController2, 5);
-    Button buttonRB2 = new JoystickButton(xboxDriverController2, 6);
-    Button buttonBack2 = new JoystickButton(xboxDriverController2, 7);
-    Button buttonStart2 = new JoystickButton(xboxDriverController2, 8);
+    Joystick xboxCoDriverController = new Joystick(2);
+    Button buttonA2 = new JoystickButton(xboxCoDriverController, 1);
+    Button buttonB2 = new JoystickButton(xboxCoDriverController, 2);
+    Button buttonX2 = new JoystickButton(xboxCoDriverController, 3);
+    Button buttonY2 = new JoystickButton(xboxCoDriverController, 4);
+    Button buttonLB2 = new JoystickButton(xboxCoDriverController, 5);
+    Button buttonRB2 = new JoystickButton(xboxCoDriverController, 6);
+    Button buttonBack2 = new JoystickButton(xboxCoDriverController, 7);
+    Button buttonStart2 = new JoystickButton(xboxCoDriverController, 8);
 
+    /**
+     * Constructor for the OI class.
+     */
     public OI() {
         buttonA1.whenPressed(new GetBall());
         buttonB1.whenPressed(new BallIntakeGoToLoadPosition());
@@ -43,10 +46,18 @@ public class OI {
         
     }
 
+    /**
+    * Accessor method for the x-axis of the drivers controller.
+    * @return the x-axis of the driver controller. 
+     */
     public double getDriveMove() {
         return xboxDriverController1.getRawAxis(2); //x-axis
     }
 
+    /**
+    * Accessor method for the y-axis of the drivers controller.
+    * @return the y-axis of the driver controller. 
+    */
     public double getDriveRotate() {
         return xboxDriverController1.getRawAxis(1); //y-axis
     }

@@ -6,13 +6,10 @@ import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 /**
- *
+ * Subsystem for the BallIntake.
  * @author Ryan Pappa
  */
-//this is a test comment to see if git is working
 public class BallIntake extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
     private DoubleSolenoid mechanismDeployer1;
     private DoubleSolenoid mechanismDeployer2;
     private Victor  intakeRoller;
@@ -24,6 +21,9 @@ public class BallIntake extends Subsystem {
     private double ballInDistance = 5;
     
     
+    /**
+     * Constructor for the BallIntake class.
+     */
     public BallIntake()
     {
         mechanismDeployer1 = new DoubleSolenoid(1, 2);
@@ -37,29 +37,50 @@ public class BallIntake extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
+    /**
+     * Method that puts the intake out.
+     */
     public void deployIntake()
     {
         mechanismDeployer1.set(DoubleSolenoid.Value.kForward);
         mechanismDeployer2.set(DoubleSolenoid.Value.kForward);
     }
+    
+    /**
+     * Method that puts the intake in.
+     */
     public void retractIntake()
     {
         mechanismDeployer1.set(DoubleSolenoid.Value.kReverse);
         mechanismDeployer2.set(DoubleSolenoid.Value.kReverse);
     }
 
-    public void ballIntakeRollerIn(int i) {
-        intakeRoller.set(i);
+    /**
+     * Method that takes the ball in.
+     * @param dir - direction 
+     */
+    public void ballIntakeRollerIn(int dir) {
+        intakeRoller.set(dir);
     }
     
-    public void ballIntakeRollerOut(int i) {
-        intakeRoller.set(i);
+    /**
+     * Method that takes the ball out.
+     * @param dir - direction
+     */
+    public void ballIntakeRollerOut(int dir) {
+        intakeRoller.set(dir);
     }
 
+    /**
+     * Method that determines if a ball is in the mechanism or not.
+     * @return boolean
+     */
     public boolean isBallInMechanism() {
         return ballDetector.getValue() <= ballInDistance;
     }
-
+    /**
+     * Method that stops the rollers. 
+     */
     public void ballIntakeRollerStop() {
        intakeRoller.set(0);
     }

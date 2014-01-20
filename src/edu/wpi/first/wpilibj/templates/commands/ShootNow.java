@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Command that shoots the balla now.
  * @author grr340
  */
 public class ShootNow extends CommandBase {
     
+    /**
+     * Constructor for the ShootNow class.
+     */
     public ShootNow() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -21,18 +19,26 @@ public class ShootNow extends CommandBase {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Shoots the ball.
+     */
     protected void execute() {
-        shooter.triggerOut();
+        shooter.setTriggerOut();
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+   /**
+    * Is finished when it is triggered.
+    * @return 
+    */
     protected boolean isFinished() {
         return shooter.isTriggered();
     }
 
-    // Called once after isFinished returns true
+    /**
+     * Puts the trigger in.
+     */
     protected void end() {
+        shooter.setTriggerIn();
     }
 
     // Called when another command which requires one or more of the same

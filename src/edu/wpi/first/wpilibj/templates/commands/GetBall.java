@@ -1,43 +1,49 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Command that turns the rollers on to get the ball.
  * @author Tech
  */
 public class GetBall extends CommandBase {
     
-    
+    /**
+     * Constructor for the GetBall class.
+     */
     public GetBall() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(ballIntake);
     }
 
-    // Called just before this Command runs the first time
+    /**
+     * Method that turns on the rollers.
+     */
     protected void initialize() {
         ballIntake.ballIntakeRollerIn(ballIntake.rollerSpeed);
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Method that deploys intake.
+     */
     protected void execute() {
         
             //TODO add try and catch
         ballIntake.deployIntake();        
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    /**
+     * Is finished when ball is in mechanism.
+     * @return boolean
+     */
     protected boolean isFinished() {
         //TODO When the arm has reached the threshold
         return ballIntake.isBallInMechanism();
    
     }
 
-    // Called once after isFinished returns true
+    /**
+     * Stops rollers when finished.
+     */
     protected void end() {
         ballIntake.ballIntakeRollerStop();
         ballIntake.retractIntake();

@@ -1,23 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Command that stops the roller if a ball is present.
  * @author tech
  */
 public class StopRollersIfBallPresent extends CommandBase {
     
+    /**
+     * Constructor for the StopRollersIfBallPresent class.
+     */
     public StopRollersIfBallPresent() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(ballIntake);
     }
 
-    // Called just before this Command runs the first time
+    /**
+     * Turns rollers on.
+     */
     protected void initialize() {
         ballIntake.ballIntakeRollerIn(1);
     }
@@ -26,12 +26,17 @@ public class StopRollersIfBallPresent extends CommandBase {
     protected void execute() {
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    /**
+     * Is finished when ball is in the mechanism.
+     * @return boolean
+     */
     protected boolean isFinished() {
         return ballIntake.isBallInMechanism();
     }
 
-    // Called once after isFinished returns true
+    /**
+     * When finished, stops the roller.
+     */
     protected void end() {
         ballIntake.ballIntakeRollerStop();
     }

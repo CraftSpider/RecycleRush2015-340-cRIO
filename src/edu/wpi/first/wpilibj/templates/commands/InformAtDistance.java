@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.templates.subsystems.SharedSensors;
 
 /**
- *
+ * Command that lights up LED according to how far away you are.
  * @author Robotics
  */
 public class InformAtDistance extends CommandBase {
     
+    /**
+     * Constructor for the InformAtDistance class.
+     */
     public InformAtDistance() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -23,7 +21,9 @@ public class InformAtDistance extends CommandBase {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Lights up LED's according to the distance.
+     */
     protected void execute() {
         double Distance = sharedSensors.getAverageUltrasonicDistance();
         

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -13,7 +8,7 @@ import edu.wpi.first.wpilibj.buttons.AnalogIOButton;
 import edu.wpi.first.wpilibj.AnalogChannel;
 
 /**
- *
+ * Subsystem for the Shooter.
  * @author Ryan Pappa
  */
 public class Shooter extends Subsystem {
@@ -22,18 +17,20 @@ public class Shooter extends Subsystem {
         public final int ARM_POSITIONING_THRESHOLD = 3;
         public final double PULL_SPEED = .5;
 
-        private Solenoid trigger;
-        private Victor puller;
-        private DigitalInput downSensor;
+        private Solenoid winchRelease;
+        private Victor rachetWinch;
+        private DigitalInput isArmDownSensor;
         // TODO: Remove armPosition if we won't have a potentiometer
         private AnalogChannel armPosition;
         
-        
+    /**
+     * Constructor for the Shooter class.
+     */    
     public Shooter()
     {
-        trigger = new Solenoid(2);
-        puller  = new Victor(6);
-        downSensor  = new DigitalInput(1);
+        winchRelease = new Solenoid(2);
+        rachetWinch  = new Victor(6);
+        isArmDownSensor  = new DigitalInput(1);
         armPosition = new AnalogChannel(3);
     }
 
@@ -41,45 +38,72 @@ public class Shooter extends Subsystem {
     {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-
     }
     
-    public void pullBack(double Speed)
+    /**
+     * Method that pulls back the winchRelease.
+     * @param double speed 
+     */
+    public void setRachetWinch(double speed)
     {
-        puller.set(Speed);
+        rachetWinch.set(speed);
     }
     
-    public void stopPull()
+    /**
+     * Method that stops pulling the winchRelease.
+     */
+    public void stopRachetWinch()
     {
-        puller.set(0);
+        rachetWinch.set(0);
     }
     
-    public boolean isDown()
+    /**
+     * Determines if the winchRelease is down.
+     * @return boolean
+     */
+    public boolean isArmDown()
     {
-        return downSensor.get();
+        return isArmDownSensor.get();
     }
     
+    /**
+     * Determines if the winchRelease is down.
+     * @return boolean
+     */
     public boolean isTriggered()
     {
-        return !trigger.get();
+        return !winchRelease.get();
     }
     
-    public void triggerIn()
+    /**
+     * Sets the winchRelease in.
+     */
+    public void setTriggerIn()
     {
-        trigger.set(true);
+        winchRelease.set(true);
     }
     
-    public void triggerOut()
+    /**
+     * Sets the winchRelease out.
+     */
+    public void setTriggerOut()
     {
-        trigger.set(false);
+        winchRelease.set(false);
     }
     
-    public void shoot() //Same function as triggerOut. Consider revision.
+    /**
+     * Shoots the ball.
+     */
+    public void shoot() //Same function as setTriggerOut. Consider revision.
     { 
-        trigger.set(false);
+        winchRelease.set(false);
     } 
     
-    public int getPosition()
+    /**
+     * 'Returns the position of the arm.
+     * @return int
+     */
+    public int getArmPosition()
     {
         return armPosition.getValue();
     }

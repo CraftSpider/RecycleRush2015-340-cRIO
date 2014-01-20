@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Command that allows the robot to be driven with joysticks.
  * @author grr340
  */
 public class DriveWithJoystick extends CommandBase {
 
+    /**
+     * Constructor for the DriveWithJoystick class.
+     */
     public DriveWithJoystick() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -22,7 +20,9 @@ public class DriveWithJoystick extends CommandBase {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Takes user input and sets motors.
+     */
     protected void execute() 
     {
         drive.arcadeDrive(oi.getDriveMove(), oi.getDriveRotate(), true);

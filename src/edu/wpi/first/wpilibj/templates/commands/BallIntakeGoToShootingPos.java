@@ -6,11 +6,14 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Command that puts the ball intake to the shooting position.
  * @author tech
  */
 public class BallIntakeGoToShootingPos extends CommandBase {
     
+    /**
+     * Constructor for the BallIntakeGoToShootingPos class.
+     */
     public BallIntakeGoToShootingPos() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -22,7 +25,9 @@ public class BallIntakeGoToShootingPos extends CommandBase {
         
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Method that retracts the ball intake.
+     */
     protected void execute() {
         ballIntake.retractIntake();
     }
@@ -32,7 +37,9 @@ public class BallIntakeGoToShootingPos extends CommandBase {
         return true;
     }
 
-    // Called once after isFinished returns true
+    /**
+     * Stops the rollers when finished.
+     */
     protected void end() {
         
         ballIntake.ballIntakeRollerStop();
