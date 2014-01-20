@@ -24,7 +24,7 @@ public class BallIntakeGoToShootingPos extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        ballIntake.retractMechanism(ballIntake.angleSpeed);
+        ballIntake.retractIntake();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,6 +35,7 @@ public class BallIntakeGoToShootingPos extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        
         ballIntake.ballIntakeRollerStop();
     }
 

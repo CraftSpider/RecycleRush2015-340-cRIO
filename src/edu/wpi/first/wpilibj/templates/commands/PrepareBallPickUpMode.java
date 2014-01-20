@@ -27,7 +27,7 @@ public class PrepareBallPickUpMode extends CommandBase {
     protected void execute() {
         
             //TODO add try and catch
-            ballIntake.deployMechanism(ballIntake.angleSpeed);
+        ballIntake.deployIntake();
         
         
     }

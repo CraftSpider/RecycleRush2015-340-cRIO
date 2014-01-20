@@ -17,6 +17,11 @@ public class BallIntake extends Subsystem {
     private DoubleSolenoid mechanismDeployer2;
     private Victor  intakeRoller;
     private AnalogChannel ballDetector;
+    public int rollerSpeed;
+    public double angleSpeed;
+    public double shootPosition;
+    public double threshold;
+    public double groundPickUp;
     
     
     public BallIntake()
@@ -41,5 +46,24 @@ public class BallIntake extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+
+    public void ballIntakeRollerIn(int i) {
+    }
+
+    public boolean isBallInMechanism() {
+return false;
+    }
+
+    public void deployMechanism(double angleSpeed) {
+        
+    }
+
+    public void ballIntakeRollerStop() {
+       
+    }
+
+    public boolean isMechanismWithinThreshold(double shootPosition, double threshold) {
+       return false;
     }
 }
