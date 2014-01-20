@@ -1,78 +1,42 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.subsystems;
 
-import edu.wpi.first.wpilibj.AnalogChannel;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.AnalogChannel;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 /**
  *
- * @author Robotics
+ * @author Ryan Pappa
  */
 //this is a test comment to see if git is working
 public class BallIntake extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    Victor mechanismDeployer = new Victor(3);
-    Victor intakeRoller = new Victor(4);
-    AnalogChannel mechanismAngleMeter = new AnalogChannel(4);
-    private AnalogChannel ballDetector = new AnalogChannel(5);
-    // TODO: fill in the two null
+    private DoubleSolenoid mechanismDeployer1;
+    private DoubleSolenoid mechanismDeployer2;
+    private Victor  intakeRoller;
+    private AnalogChannel ballDetector;
     
     
-    public final int groundPickUp = 90;
-    public final int threshold = 3;
-    public final int shootPosition = 0;
-    public final double rollerSpeed = .5;
-    public final double angleSpeed = .5;
-    public final int ultrasonicValueConsideredIn = 10;
+    public BallIntake()
+    {
+        mechanismDeployer1 = new DoubleSolenoid(1, 2);
+        mechanismDeployer2 = new DoubleSolenoid(3, 4);
+        intakeRoller = new Victor(4);
+        ballDetector = new AnalogChannel(5);
+    }
     
-    
-    
-    
-    
-    
-    
-    public void deployMechanism (double speed){
-        mechanismDeployer.set(speed);
+    public void deployIntake()
+    {
+        mechanismDeployer1.set(DoubleSolenoid.Value.kForward);
+        mechanismDeployer2.set(DoubleSolenoid.Value.kForward);
     }
-    public void retractMechanism(double speed){
-        mechanismDeployer.set(-speed);
+    public void retractIntake()
+    {
+        mechanismDeployer1.set(DoubleSolenoid.Value.kReverse);
+        mechanismDeployer2.set(DoubleSolenoid.Value.kReverse);
     }
-    public void mechanismStop(){
-    mechanismDeployer.set(0);
-    }
-    public void ballIntakeRollerIn(double speed){
-        intakeRoller.set(speed);
-    }
-    public void ballIntakeRollerOut(double speed){
-        intakeRoller.set(-speed);
-    }
-    public void ballIntakeRollerStop(){
-        intakeRoller.set(0);
-    }
-    public double mechanismDeltaAngle(int angle){
-        return angle - mechanismAngleMeter.getValue();
-    }
-    public boolean isMechanismWithinThreshold(int angle, double threshold){
-        if(mechanismDeltaAngle(angle) < threshold)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    public boolean isBallInMechanism() {
-        return ballDetector.getValue() < ultrasonicValueConsideredIn;
-    }
-            
     
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
