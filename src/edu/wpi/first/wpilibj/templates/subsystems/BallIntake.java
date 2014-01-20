@@ -20,8 +20,8 @@ public class BallIntake extends Subsystem {
     public int rollerSpeed;
     public double angleSpeed;
     public double shootPosition;
-    public double threshold;
     public double groundPickUp;
+    private double ballInDistance = 5;
     
     
     public BallIntake()
@@ -30,6 +30,11 @@ public class BallIntake extends Subsystem {
         mechanismDeployer2 = new DoubleSolenoid(3, 4);
         intakeRoller = new Victor(4);
         ballDetector = new AnalogChannel(5);
+    }
+    
+    public void initDefaultCommand() {
+        // Set the default command for a subsystem here.
+        //setDefaultCommand(new MySpecialCommand());
     }
     
     public void deployIntake()
@@ -42,28 +47,20 @@ public class BallIntake extends Subsystem {
         mechanismDeployer1.set(DoubleSolenoid.Value.kReverse);
         mechanismDeployer2.set(DoubleSolenoid.Value.kReverse);
     }
-    
-    public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
-    }
 
     public void ballIntakeRollerIn(int i) {
+        intakeRoller.set(i);
+    }
+    
+    public void ballIntakeRollerOut(int i) {
+        intakeRoller.set(i);
     }
 
     public boolean isBallInMechanism() {
-return false;
-    }
-
-    public void deployMechanism(double angleSpeed) {
-        
+        return ballDetector.getValue() <= ballInDistance;
     }
 
     public void ballIntakeRollerStop() {
-       
-    }
-
-    public boolean isMechanismWithinThreshold(double shootPosition, double threshold) {
-       return false;
+       intakeRoller.set(0);
     }
 }

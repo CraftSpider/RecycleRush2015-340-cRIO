@@ -15,7 +15,7 @@ public class AllStop extends CommandBase {
         requires(gearShift); //requires all subsystems. forces them to stop what they are doing.
         requires(shooter);
         requires(ballIntake);
-        requires(drive);       
+        requires(drive); 
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
