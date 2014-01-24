@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- *
+ *Subsystem for the GearShift.
  */
 public class GearShift extends Subsystem {
 
@@ -12,12 +12,18 @@ public class GearShift extends Subsystem {
     // here. Call these from Commands.
     private Solenoid gearSolenoid = new Solenoid(1); //instantiate Solenoid.
 
+    /**
+     * Deactivate the solenoid. sets high gear.
+     */
     public void gearHigh() {
-        gearSolenoid.set(false); //deactivate the solenoid. sets high gear.
+        gearSolenoid.set(false);
     }
 
+    /**
+     * Activate the solenoid. sets low gear.
+     */
     public void gearLow() {
-        gearSolenoid.set(true); //activate the solenoid. sets low gear.
+        gearSolenoid.set(true);
     }
 
     public void initDefaultCommand() {

@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.templates.commands.DriveWithJoystick;
 
 /**
- *
+ * Subsystem for the Drive.
  * @author Tyler Pawlaczyk
  */
 public class Drive extends Subsystem {
@@ -19,6 +19,9 @@ public class Drive extends Subsystem {
     public double leftMotorSpeed;
     public double rightMotorSpeed;
 
+    /**
+     * Constructor for the Drive class.
+     */
     public Drive()
     {
         leftDrive1 = new Talon(10);//was port 1
@@ -36,30 +39,46 @@ public class Drive extends Subsystem {
         setDefaultCommand(new DriveWithJoystick());
     }
 
+    /**
+     * Sets the speed for the left drive.
+     * @param double speed 
+     */
     public void setLeftDrive(double speed)
     {
-            leftDrive1.set(speed);
-            leftDrive2.set(speed);
-            leftDrive3.set(speed);
+        leftDrive1.set(speed);
+        leftDrive2.set(speed);
+        leftDrive3.set(speed);
     }
-
+    
+    /**
+     * Sets the speed for the right drive.
+     * @param double speed 
+     */
     public void setRightDrive(double speed)
     {
-            rightDrive1.set(speed);
-            rightDrive2.set(speed);
-            rightDrive3.set(speed);
+        rightDrive1.set(speed);
+        rightDrive2.set(speed);
+        rightDrive3.set(speed);
     }   
     
+    /**
+     * Sets the speed for both sides.
+     * @param double leftOutput
+     * @param double rightOutput 
+     */
     private void setLeftRightMotorOutputs(double leftOutput, double rightOutput) {
         this.setLeftDrive(leftOutput);
         this.setRightDrive(rightOutput);
     }
     
+    /**
+     * Allows for the driver to control the robot with arcade drive.
+     * @param double moveValue
+     * @param double rotateValue
+     * @param boolean squaredInputs 
+     */
      public void arcadeDrive(double moveValue, double rotateValue, boolean squaredInputs) 
      {
-        // local variables to hold the computed PWM values for the motors
-
-
         if (squaredInputs) 
         {
             // square the inputs (while preserving the sign) to increase fine control while permitting full power       

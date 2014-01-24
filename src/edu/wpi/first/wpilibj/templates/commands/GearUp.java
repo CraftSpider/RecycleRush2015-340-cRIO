@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Command that shifts the gear up.
  * @author Tech
  */
 public class GearUp extends CommandBase {
 
+    /**
+     * Constructor for the GearUp.
+     */
     public GearUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -22,9 +20,11 @@ public class GearUp extends CommandBase {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Method that shifts the robot into high gear. calls gearHigh.
+     */
     protected void execute() {
-        gearShift.gearHigh(); //shift the robot into high gear. calls gearHigh.
+        gearShift.gearHigh(); 
     }
 
     // Make this return true when this Command no longer needs to run execute()

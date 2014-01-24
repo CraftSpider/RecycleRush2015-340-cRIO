@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Command that stops all processes.
  * @author Tech
  */
 public class AllStop extends CommandBase {
 
+    /**
+     * Constructor for the AllStop class.
+     */
     public AllStop() {
         requires(gearShift); //requires all subsystems. forces them to stop what they are doing.
         requires(shooter);
         requires(ballIntake);
-        requires(drive);       
+        requires(drive); 
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -24,14 +22,16 @@ public class AllStop extends CommandBase {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
+   /**
+    * Method that stops all processes.
+    */
     protected void execute() {
       drive.setLeftDrive(0);
       drive.setRightDrive(0);
       ballIntake.ballIntakeRollerStop();
       gearShift.gearLow();
-      shooter.stopPull();
-      shooter.triggerOut();//TODO: Stop all subsystems
+      shooter.stopRachetWinch();
+      shooter.setTriggerOut();//TODO: Stop all subsystems
     }
 
     // Make this return true when this Command no longer needs to run execute()

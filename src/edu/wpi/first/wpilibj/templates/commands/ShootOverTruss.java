@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
- *
+ * Command that allows us to shoot the ball over the truss.
  * @author grr340
  */
 public class ShootOverTruss extends CommandBase {
     
+    /**
+     * Constructor for the ShootOverTruss class.
+     */
     public ShootOverTruss() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -21,17 +19,24 @@ public class ShootOverTruss extends CommandBase {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Pulls back the trigger.
+     */
     protected void execute() {
-        shooter.pullBack(shooter.PULL_SPEED);
+        shooter.setRachetWinch(shooter.PULL_SPEED);
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    /**
+     * Is finished when it is in the truss position.
+     * @return boolean
+     */
     protected boolean isFinished() {
-        return shooter.getPosition() > shooter.TRUSS_POSITION;
+        return shooter.getArmPosition() > shooter.TRUSS_POSITION;
     }
 
-    // Called once after isFinished returns true
+    /**
+     * Shoots.
+     */
     protected void end() {
         shooter.shoot();
     }
