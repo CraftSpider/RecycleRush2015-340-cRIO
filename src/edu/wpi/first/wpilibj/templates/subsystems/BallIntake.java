@@ -30,7 +30,7 @@ public class BallIntake extends Subsystem {
         mechanismDeployer2 = new DoubleSolenoid(3, 4);
         intakeRoller = new Victor(4);
         ballDetector = new AnalogChannel(5);
-        ballDectorValueConsideredIn = 10;
+        
     }
     
     public void initDefaultCommand() {
@@ -87,10 +87,10 @@ public class BallIntake extends Subsystem {
     }
     
     public boolean isMechanismIn() {
-    
+    return false;
     }
     public boolean isMechanismOut() {
-    
+    return false;
     }
 
     public boolean isMechanismWithinThreshold(double shootPosition, double threshold) {
