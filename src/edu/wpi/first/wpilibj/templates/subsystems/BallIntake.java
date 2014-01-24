@@ -22,6 +22,7 @@ public class BallIntake extends Subsystem {
     public double shootPosition;
     public double threshold;
     public double groundPickUp;
+    public int ballDectorValueConsideredIn;
     
     
     public BallIntake()
@@ -30,6 +31,7 @@ public class BallIntake extends Subsystem {
         mechanismDeployer2 = new DoubleSolenoid(3, 4);
         intakeRoller = new Victor(4);
         ballDetector = new AnalogChannel(5);
+        ballDectorValueConsideredIn = 10;
     }
     
     public void deployIntake()
@@ -52,7 +54,7 @@ public class BallIntake extends Subsystem {
     }
 
     public boolean isBallInMechanism() {
-return false;
+        return ballDetector.getValue() < ballDectorValueConsideredIn;
     }
 
     public void deployMechanism(double angleSpeed) {
@@ -61,6 +63,13 @@ return false;
 
     public void ballIntakeRollerStop() {
        
+    }
+    
+    public boolean isMechanismIn() {
+    
+    }
+    public boolean isMechanismOut() {
+    
     }
 
     public boolean isMechanismWithinThreshold(double shootPosition, double threshold) {
