@@ -30,7 +30,6 @@ public class BallIntake extends Subsystem {
         mechanismDeployer2 = new DoubleSolenoid(3, 4);
         intakeRoller = new Victor(4);
         ballDetector = new AnalogChannel(5);
-        
     }
     
     public void initDefaultCommand() {
@@ -54,6 +53,11 @@ public class BallIntake extends Subsystem {
     {
         mechanismDeployer1.set(DoubleSolenoid.Value.kReverse);
         mechanismDeployer2.set(DoubleSolenoid.Value.kReverse);
+    }
+    
+    public void goToMid() {
+        mechanismDeployer1.set(DoubleSolenoid.Value.kReverse);
+        mechanismDeployer2.set(DoubleSolenoid.Value.kForward);
     }
 
     /**
@@ -87,10 +91,13 @@ public class BallIntake extends Subsystem {
     }
     
     public boolean isMechanismIn() {
-    return false;
+        return mechanismDeployer1.get() == DoubleSolenoid.Value.kReverse && mechanismDeployer2.get() == DoubleSolenoid.Value.kReverse;
     }
     public boolean isMechanismOut() {
-    return false;
+        return mechanismDeployer1.get() == DoubleSolenoid.Value.kForward && mechanismDeployer2.get() == DoubleSolenoid.Value.kForward;
+    }
+    public boolean isMechanismMid() {
+        return mechanismDeployer1.get() == DoubleSolenoid.Value.kForward && mechanismDeployer2.get() == DoubleSolenoid.Value.kReverse || mechanismDeployer1.get() == DoubleSolenoid.Value.kReverse && mechanismDeployer2.get() == DoubleSolenoid.Value.kForward;
     }
 
     public boolean isMechanismWithinThreshold(double shootPosition, double threshold) {
