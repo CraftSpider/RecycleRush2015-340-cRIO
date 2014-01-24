@@ -14,7 +14,7 @@ public class ShootAtDistance extends CommandBase {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(shooter);
-        requires(sharedSensors);
+        requires(drive);
     }
 
     /**
@@ -29,13 +29,17 @@ public class ShootAtDistance extends CommandBase {
      */
     protected void execute() {
         if (sharedSensors.getAverageUltrasonicDistance() <= DISTANCE_TO_SHOOT_FROM) {
-            System.out.println("Shoot");
+            shooter.setTriggerOut();
             //shooter.setRachetWinch(.5);
             //if (shooter.isArmDown()) {
             //    shooter.shoot();
             //}
+        } else {
+            drive.setLeftDrive(DRIVE_SPEED);
+            drive.setRightDrive(DRIVE_SPEED);
         }
     }
+    public static final double DRIVE_SPEED = .5;
     /**
      * Is finished when it is triggered.
      * @return boolean
@@ -49,6 +53,8 @@ public class ShootAtDistance extends CommandBase {
      */
     protected void end() {
         shooter.setTriggerIn();
+        drive.setLeftDrive(0);
+        drive.setRightDrive(0);
     }
 
     // Called when another command which requires one or more of the same

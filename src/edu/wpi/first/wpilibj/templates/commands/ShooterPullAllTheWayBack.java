@@ -4,12 +4,12 @@ package edu.wpi.first.wpilibj.templates.commands;
  * Command that pulls the shooter to goal position.
  * @author grr340
  */
-public class ShooterPullToGoalPos extends CommandBase {
+public class ShooterPullAllTheWayBack extends CommandBase {
     
     /**
      * Constructor for the ShooterPullToGoalPos class.
      */
-    public ShooterPullToGoalPos() {
+    public ShooterPullAllTheWayBack() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(shooter);
@@ -17,6 +17,7 @@ public class ShooterPullToGoalPos extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        shooter.setTriggerIn();
     }
 
     /**

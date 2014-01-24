@@ -14,7 +14,6 @@ public class DriveToDistance extends CommandBase {
     public DriveToDistance() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(sharedSensors);
         requires(drive);
     }
 

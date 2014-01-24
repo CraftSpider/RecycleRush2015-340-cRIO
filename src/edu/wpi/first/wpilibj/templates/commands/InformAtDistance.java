@@ -14,7 +14,6 @@ public class InformAtDistance extends CommandBase {
     public InformAtDistance() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        requires(sharedSensors);
     }
 
     // Called just before this Command runs the first time
