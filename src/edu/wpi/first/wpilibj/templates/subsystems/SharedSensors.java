@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 
 
 
-public class SharedSensors extends Subsystem
+public class SharedSensors
 {
     private AnalogChannel leftUltrasonic, rightUltrasonic;
     private DigitalInput leftLineReader, rightLineReader;
