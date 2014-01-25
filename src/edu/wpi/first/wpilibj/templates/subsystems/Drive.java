@@ -24,13 +24,13 @@ public class Drive extends Subsystem {
      */
     public Drive()
     {
-        leftDrive1 = new Talon(10);//was port 1
+        leftDrive1 = new Talon(1);//was port 1
         leftDrive2 = new Talon(2);
-        leftDrive3 = new Talon(7);
+        leftDrive3 = new Talon(3);
         
-        rightDrive1 = new Talon(8);
+        rightDrive1 = new Talon(4);
         rightDrive2 = new Talon(5);
-        rightDrive3 = new Talon(9);   
+        rightDrive3 = new Talon(6);   
     }
 
     public void initDefaultCommand() {
